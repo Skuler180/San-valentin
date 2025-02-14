@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Valentín Para Mi Princesa</title>
+    <style>
+        body {
+            text-align: center;
+            font-family: Arial, sans-serif;
+            background-color: #ffe6e6;
+        }
+        .container {
+            margin-top: 50px;
+        }
+        .hidden {
+            display: none;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            border: none;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        .yes { background: #ff4d4d; color: white; }
+        .no { background: gray; color: white; }
+    </style>
+</head>
+<body>
+    <div class="container" id="step1">
+        <img src="tortuga.png" width="150" alt="Tortuga">
+        <p>¡Hola, mi niña cabezona! Tengo algo muy bonito para ti 💗</p>
+        <button onclick="nextStep()">Abrir</button>
+    </div>
+
+    <div class="container hidden" id="step2">
+        <p>"Tu sabes que eres todo para mi, te amo y siempre sera asi,gracias por todo lo que causas en mi, de verdad gracias, te amo con toda mi alma y siempre sera asi, quiero preguntarte una cosa..."</p>
+        <button onclick="nextStep()">Siguiente</button>
+    </div>
+
+    <div class="container hidden" id="step3">
+        <p>¿Quieres ser mi San Valentín? 💗</p>
+        <button class="yes" onclick="celebrar()">Sí</button>
+        <button class="no">No</button>
+    </div>
+
+    <script>
+        function nextStep() {
+            document.getElementById("step1").classList.add("hidden");
+            document.getElementById("step2").classList.remove("hidden");
+            setTimeout(() => {
+            document.getElementById("step2").classList.add("hidden");
+            document.getElementById("step3").classList.remove("hidden");
+        }, 5000);
+        }
+        function celebrar() {
+            let confetti = document.createElement("div");
+            confetti.innerHTML = "🎉💗".repeat(30);
+            confetti.style.position = "fixed";
+            confetti.style.top = "50px";
+            confetti.style.left = "0";
+            confetti.style.width = "100%";
+            confetti.style.textAlign = "center";
+            confetti.style.fontSize = "30px";
+            document.body.appendChild(confetti);
+        }
+    </script>
+</body>
+</html>
